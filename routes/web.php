@@ -9,9 +9,10 @@ use App\Http\Controllers\usersController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\HarianController;
+use App\Http\Controllers\KelompokController;
 use App\Http\Controllers\SuratController;
 use App\Http\Controllers\TahsinHarianController;
-use App\Http\Controllers\UjianMingguanController;
+use App\Http\Controllers\TahunPelajaranController;
 use App\Http\Controllers\UjianTahfidzController;
 use App\Http\Controllers\UjianTahsinController;
 
@@ -120,3 +121,6 @@ Route::resource('guru', GuruController::class)->middleware('role:admin');
 Route::get('/guru/edit-password/{id}', [GuruController::class, 'showPassword'])->name('guru.edit-password')->middleware('role:admin');
 Route::put('/guru/edit-password/{id}', [GuruController::class, 'changePassword'])->name('guru.change-password')->middleware('role:admin');
 Route::post('/guru/import-teacher', [GuruController::class, 'importTeacher'])->name('guru.import-teacher')->middleware('role:admin');
+
+Route::resource('tahun-pelajaran', TahunPelajaranController::class)->middleware('role:admin');
+Route::resource('kelompok', KelompokController::class)->middleware('role:admin');

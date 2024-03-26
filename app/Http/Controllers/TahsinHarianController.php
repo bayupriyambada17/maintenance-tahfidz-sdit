@@ -46,9 +46,9 @@ class TahsinHarianController extends Controller
             'kelas_id' => 'required',
             'from' => 'required',
             'to' => 'required',
-            'makhroj' => 'required',
-            'tajwid' => 'required',
-            'kelancaran' => 'required',
+            // 'makhroj' => 'required',
+            // 'tajwid' => 'required',
+            // 'kelancaran' => 'required',
         ]);
 
         TahsinHarian::create($validated);
@@ -84,9 +84,9 @@ class TahsinHarianController extends Controller
             'kelas_id' => 'required',
             'from' => 'required',
             'to' => 'required',
-            'makhroj' => 'required',
-            'tajwid' => 'required',
-            'kelancaran' => 'required',
+            // 'makhroj' => 'required',
+            // 'tajwid' => 'required',
+            // 'kelancaran' => 'required',
         ]);
 
         $tahsin = TahsinHarian::find($id);
@@ -94,7 +94,7 @@ class TahsinHarianController extends Controller
 
         return redirect('/tahsin-harian')->with('success', 'Data Berhasil Diupdate');
     }
-    
+
     public function delete($id)
     {
         $tahsin = TahsinHarian::find($id);

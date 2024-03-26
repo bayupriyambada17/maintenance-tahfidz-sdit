@@ -51,9 +51,9 @@ class PencatatanHarianExport implements FromQuery, WithColumnFormatting, WithMap
             'Ayat Awal',
             'Surat Akhir',
             'Ayat Akhir',
-            'Makhroj',
-            'Tajwid',
-            'Kelancaran',
+            // 'Makhroj',
+            // 'Tajwid',
+            // 'Kelancaran',
             'Total Ayat',
         ];
     }
@@ -69,19 +69,19 @@ class PencatatanHarianExport implements FromQuery, WithColumnFormatting, WithMap
             $model->from_ayat,
             $model->to->name,
             $model->to_ayat,
-            $model->makhroj,
-            $model->tajwid,
-            $model->kelancaran,
+            // $model->makhroj,
+            // $model->tajwid,
+            // $model->kelancaran,
             $model->total_ayat,
         ];
-        
-       
+
+
     }
 
     public function columnFormats(): array
     {
         return [
-            
+
         ];
     }
 

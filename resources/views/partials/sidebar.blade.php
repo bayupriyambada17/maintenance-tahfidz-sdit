@@ -76,10 +76,17 @@
                             </li>
 
                             <li class="nav-item">
-                                <a href="{{ url('/kelas') }}"
-                                    class="nav-link {{ Request::is('kelas*') ? 'active' : '' }}">
+                                <a href="{{ route('tahun-pelajaran.index') }}"
+                                    class="nav-link {{ Request::routeIs('tahun-pelajaran.*') ? 'active' : '' }}">
                                     <i class="fas fa-hospital-alt nav-icon"></i>
-                                    <p>Kelas</p>
+                                    <p>Tahun Pelajaran</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('kelompok.index') }}"
+                                    class="nav-link {{ Request::routeIs('kelompok.*') ? 'active' : '' }}">
+                                    <i class="fas fa-hospital-alt nav-icon"></i>
+                                    <p>Kelompok</p>
                                 </a>
                             </li>
 
@@ -172,12 +179,8 @@
                         </p>
                     </a>
                 </li>
-
-
-
             </ul>
         </nav>
-
     </div>
     <!-- /.sidebar -->
 </aside>

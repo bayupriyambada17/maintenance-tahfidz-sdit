@@ -20,19 +20,28 @@ class SiswaController extends Controller
     public function index()
     {
         $search = request()->input('search');
-        $data = Siswa::when($search, function ($query) use ($search) {
-                    return $query->where('name', 'LIKE', '%'.$search.'%')
-                                ->orWhere('nis', 'LIKE', '%'.$search.'%')
-                                ->orWhere('nisn', 'LIKE', '%'.$search.'%')
-                                ->orWhereHas('user', function ($query) use ($search) {
-                                    $query->where('name', 'LIKE', '%'.$search.'%');
-                                });
-                })
-                ->orderBy('id', 'ASC');
+        $user = auth()->user();
+
+        $data = Siswa::when($user->hasRole('admin') || $user->hasRole('guru'), function ($query) use ($search, $user) {
+            return $query->when($search, function ($query) use ($search) {
+                return $query->where('name', 'LIKE', '%' . $search . '%')
+                    ->orWhere('nis', 'LIKE', '%' . $search . '%')
+                    ->orWhere('nisn', 'LIKE', '%' . $search . '%')
+                    ->orWhereHas('user', function ($query) use ($search) {
+                        $query->where('name', 'LIKE', '%' . $search . '%');
+                    });
+            })->when($user->hasRole('guru'), function ($query) use ($user) {
+                return $query->whereHas('user', function ($query) use ($user) {
+                    $query->where('user_id', $user->id);
+                });
+            });
+        })
+            ->orderBy('id', 'ASC')
+            ->paginate(10);
 
         return view('siswa.index', [
             'title' => 'Siswa',
-            'data' => $data->paginate(10)->withQueryString()
+            'data' => $data
         ]);
     }
 
@@ -63,7 +72,7 @@ class SiswaController extends Controller
         $request->validate([
             'file' => 'required|mimes:xls,xlsx,csv|max:5000'
         ]);
-        
+
         $file = $request->file('file');
         $nama_file = $file->getClientOriginalName();
         $file->move('siswa_import', $nama_file);
@@ -189,7 +198,7 @@ class SiswaController extends Controller
             Alert::error('Failed', 'Terdapat Data Tahfidz Harian Yang Menggunakan Target Ini!');
             return back();
         } else {
-           
+
             $target = Target::find($target_id);
             $target->delete();
             return redirect('/siswa/target/'.$siswa_id)->with('success', 'Data Berhasil Didelete');

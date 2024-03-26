@@ -112,7 +112,7 @@
                             </div>
                             @enderror
                         </div>
-                        <div class="col-lg-4 col-sm-12 col-md-4 mb-4">
+                        {{-- <div class="col-lg-4 col-sm-12 col-md-4 mb-4">
                             <label for="makhroj">Makhroj</label>
                             <input type="number" class="form-control @error('makhroj') is-invalid @enderror" id="makhroj" name="makhroj" value="{{ old('makhroj', $data->makhroj) }}">
                             @error('makhroj')
@@ -138,7 +138,7 @@
                                 {{ $message }}
                             </div>
                             @enderror
-                        </div>
+                        </div> --}}
                         <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                         <input type="hidden" name="target_name" id="target_name" value="{{ old('target_name', 'Juz ' . $data->target->juz . ' - Tahun ' . $data->target->tahun) }}">
                         <input type="hidden" name="from_order" id="from_order" value="{{ old('from_order', $data->from->order) }}">

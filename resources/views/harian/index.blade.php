@@ -26,7 +26,7 @@
                 <table class="table table-striped" id="tableresponsive">
                     <thead>
                         <tr>
-                            <th>No.</th>    
+                            <th>No.</th>
                             <th>Tanggal</th>
                             <th>Musyrif</th>
                             <th>Siswa</th>
@@ -34,9 +34,9 @@
                             <th>Ayat Awal</th>
                             <th>Surat Akhir</th>
                             <th>Ayat Akhir</th>
-                            <th>Makhroj</th>
+                            {{-- <th>Makhroj</th>
                             <th>Tajwid</th>
-                            <th>Kelancaran</th>
+                            <th>Kelancaran</th> --}}
                             <th>Total Ayat</th>
                             <th>Action</th>
                         </tr>
@@ -52,9 +52,9 @@
                                 <td>{{ $d->from_ayat }}</td>
                                 <td>{{ $d->to->name }}</td>
                                 <td>{{ $d->to_ayat }}</td>
-                                <td>{{ $d->makhroj }}</td>
+                                {{-- <td>{{ $d->makhroj }}</td>
                                 <td>{{ $d->tajwid }}</td>
-                                <td>{{ $d->kelancaran }}</td>
+                                <td>{{ $d->kelancaran }}</td> --}}
                                 <td>{{ $d->total_ayat }}</td>
                                 <td>
                                     <a href="{{ url('/pencatatan-harian/edit/'.$d->id) }}" title="Edit" class="btn btn-sm btn-info"><i class="fa fa-solid fa-edit"></i></a>

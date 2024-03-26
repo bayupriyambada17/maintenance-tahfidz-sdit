@@ -50,9 +50,9 @@ class TahsinHarianExport implements FromQuery, WithColumnFormatting, WithMapping
             'Kelas',
             'Mulai',
             'Akhir',
-            'Makhroj',
-            'Tajwid',
-            'Kelancaran',
+            // 'Makhroj',
+            // 'Tajwid',
+            // 'Kelancaran',
         ];
     }
 
@@ -66,18 +66,18 @@ class TahsinHarianExport implements FromQuery, WithColumnFormatting, WithMapping
             $model->kelas->name,
             $model->from,
             $model->to,
-            $model->makhroj,
-            $model->tajwid,
-            $model->kelancaran,
+            // $model->makhroj,
+            // $model->tajwid,
+            // $model->kelancaran,
         ];
-        
-       
+
+
     }
 
     public function columnFormats(): array
     {
         return [
-            
+
         ];
     }
 

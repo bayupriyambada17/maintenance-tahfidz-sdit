@@ -26,16 +26,16 @@
                 <table class="table table-striped" id="tableresponsive">
                     <thead>
                         <tr>
-                            <th>No.</th>    
+                            <th>No.</th>
                             <th>Tanggal</th>
                             <th>Musyrif</th>
                             <th>Siswa</th>
                             <th>Kelas</th>
                             <th>Mulai</th>
                             <th>Akhir</th>
-                            <th>Makhroj</th>
+                            {{-- <th>Makhroj</th>
                             <th>Tajwid</th>
-                            <th>Kelancaran</th>
+                            <th>Kelancaran</th> --}}
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -49,9 +49,9 @@
                                 <td>{{ $d->kelas->name }}</td>
                                 <td>{{ $d->from }}</td>
                                 <td>{{ $d->to }}</td>
-                                <td>{{ $d->makhroj }}</td>
+                                {{-- <td>{{ $d->makhroj }}</td>
                                 <td>{{ $d->tajwid }}</td>
-                                <td>{{ $d->kelancaran }}</td>
+                                <td>{{ $d->kelancaran }}</td> --}}
                                 <td>
                                     <a href="{{ url('/tahsin-harian/edit/'.$d->id) }}" title="Edit" class="btn btn-sm btn-info"><i class="fa fa-solid fa-edit"></i></a>
                                     <form action="{{ url('/tahsin-harian/delete/'.$d->id) }}" method="post" class="d-inline">
